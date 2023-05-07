@@ -1,5 +1,24 @@
+<!DOCTYPE html>
 <html>
-<body>
-  Hello World!
-</body>
+  <head>
+    <title>API Request Example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form onsubmit="submitForm(event)">
+      <label for="input">Enter Scryfall Search URL:</label>
+      <input type="text" id="input" name="input">
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+        var input = document.getElementById("input").value;
+        var urlParams = new URLSearchParams(input);
+        var qParam = urlParams.get("q");
+        var url = "output.html?request=" + encodeURIComponent(qParam);
+        window.location.href = url;
+      }
+    </script>
+  </body>
 </html>
